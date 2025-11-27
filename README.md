@@ -15,3 +15,24 @@ This project implements a secure Multi-Party Computation (MPC) system using the 
 - Additive Secret Sharing: Values split into random shares across parties
 - Beaver Triples: Pre-computed multiplication triples for efficient secure multiplication
 - MAC Verification: Cryptographic integrity checks on all computations
+
+## Protocol Architecture
+
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   Party Node 1  │    │   Party Node 2  │    │   Party Node 3  │
+│                 │    │                 │    │                 │
+│ - SPDZ Party    │    │ - SPDZ Party    │    │ - SPDZ Party    │
+│ - Ring Sig      │    │ - Ring Sig      │    │ - Ring Sig      │
+│ - Dilithium     │    │ - Dilithium     │    │ - Dilithium     │
+│ - Secret Shares │    │ - Secret Shares │    │ - Secret Shares │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+          │                       │                       │
+          └───────────────────────────────────────────────┘
+                                  │
+                        ┌─────────────────┐
+                        │  Coordinator    │
+                        │                 │
+                        │ - SPDZCoordinator│
+                        │ - Authentication│
+                        │ - Reconstruction│
+                        └─────────────────┘
