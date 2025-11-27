@@ -16,23 +16,18 @@ This project implements a secure Multi-Party Computation (MPC) system using the 
 - Beaver Triples: Pre-computed multiplication triples for efficient secure multiplication
 - MAC Verification: Cryptographic integrity checks on all computations
 
-## Protocol Architecture
+## Cryptographic Primitives
+### Dilithium Post-Quantum Signatures
+- Purpose: Authentication and non-repudiation
+- Security: Lattice-based cryptography resistant to quantum attacks
+- Usage: Signs ring signatures and protocol messages
 
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Party Node 1  │    │   Party Node 2  │    │   Party Node 3  │
-│                 │    │                 │    │                 │
-│ - SPDZ Party    │    │ - SPDZ Party    │    │ - SPDZ Party    │
-│ - Ring Sig      │    │ - Ring Sig      │    │ - Ring Sig      │
-│ - Dilithium     │    │ - Dilithium     │    │ - Dilithium     │
-│ - Secret Shares │    │ - Secret Shares │    │ - Secret Shares │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-          │                       │                       │
-          └───────────────────────────────────────────────┘
-                                  │
-                        ┌─────────────────┐
-                        │  Coordinator    │
-                        │                 │
-                        │ - SPDZCoordinator│
-                        │ - Authentication│
-                        │ - Reconstruction│
-                        └─────────────────┘
+### Monero-Style Ring Signatures
+- Purpose: Participant anonymity within a ring
+- Features: Linkability prevents double-spending
+- Key Image: Unique identifier that reveals double-signing attempts
+
+### SPDZ Secret Sharing
+- Method: Additive secret sharing over finite field
+- Security: Information-theoretic privacy for honest majority
+- Authentication: MAC-protected shares prevent tampering
