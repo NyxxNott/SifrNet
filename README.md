@@ -52,3 +52,8 @@ This project implements a secure Multi-Party Computation (MPC) system using the 
 - MACs verified for integrity
 - Ring signatures checked for authenticity
 - Result validated against expected computation
+
+## Acknowledgments
+- Based on original SPDZ protocol by Damgård et al.
+- Dilithium implementation inspired by PQClean project
+- Ring signatures following Monero cryptographic constructions
