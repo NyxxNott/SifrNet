@@ -1,4 +1,4 @@
-# MPC SPDZ with Ring Signatures and Dilithium PQC Framework
+# MPC SPDZ with Ring Signatures and Dilithium Signatures
 ## Overview
 This project implements a secure Multi-Party Computation (MPC) system using the SPDZ protocol, enhanced with Monero-style ring signatures for anonymity and Dilithium-based post-quantum cryptography for authentication. The system enables multiple parties to jointly compute functions over their private inputs while maintaining privacy, integrity, and post-quantum security.
 
