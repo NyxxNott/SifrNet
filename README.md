@@ -31,3 +31,24 @@ This project implements a secure Multi-Party Computation (MPC) system using the 
 - Method: Additive secret sharing over finite field
 - Security: Information-theoretic privacy for honest majority
 - Authentication: MAC-protected shares prevent tampering
+
+## Cryptographic Steps
+### Input Authentication
+- Each party creates a ring signature of their input
+- Dilithium signature authenticates the ring signature
+- Coordinator verifies all authenticated inputs
+
+### Secret Sharing
+- Each value is split into random shares using additive secret sharing
+- Shares are authenticated with MACs using a global MAC key
+- Each party receives one share of each input
+
+### Secure Computation
+- Addition: Shares are locally summed
+- Multiplication: Uses Beaver triples for secure multiplication
+- Reconstruction: Final result computed by combining shares
+
+### Verification
+- MACs verified for integrity
+- Ring signatures checked for authenticity
+- Result validated against expected computation
